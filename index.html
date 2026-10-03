@@ -129,6 +129,12 @@ td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; whit
 
 .block { display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
 .block > p { color: var(--muted); max-width: 65ch; }
+.calc { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.calc label { display: flex; flex-direction: column; gap: 4px; font-size: 0.8125rem; color: var(--muted); flex: 1 1 130px; min-width: 0; }
+.calc input, .calc select { font: inherit; font-size: 0.9375rem; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; width: 100%; }
+.calc input:focus-visible, .calc select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.calc output { flex: 1 1 100%; font-family: var(--font-mono); font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc output b { color: var(--accent); font-weight: 500; }
 .warn { background: var(--warn-bg); border: 1px solid var(--hot); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
 .warn b { color: var(--hot); }
 .warn ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
@@ -144,7 +150,7 @@ footer { color: var(--muted); font-size: 0.8125rem; border-top: 1px solid var(--
     <h1>Довідник із сушіння</h1>
     <p class="lead">Режими, підготовка й ознаки готовності для грибів, фруктів, ягід, овочів, трав, горіхів, м’яса й риби. Окремо є рецепти маринадів, кабаносів, в’яленої риби, пастили, цукатів і снеків. Натисніть на продукт, щоб розгорнути докладний опис.</p>
     <nav class="toc" aria-label="Розділи">
-      <a href="#rules">Правила</a><a href="#device">Лотки й розкладка</a><a href="#catalog">Продукти й рецепти</a><a href="#prep">Попередня обробка</a><a href="#numbers">Вихід і зберігання</a><a href="#meat">Безпека м’яса</a><a href="#care">Догляд</a>
+      <a href="#rules">Правила</a><a href="#device">Лотки й розкладка</a><a href="#catalog">Продукти й рецепти</a><a href="#prep">Попередня обробка</a><a href="#numbers">Вихід і зберігання</a><a href="#power">Електрика</a><a href="#meat">Безпека м’яса</a><a href="#care">Догляд</a>
     </nav>
   </header>
 
@@ -265,6 +271,41 @@ footer { color: var(--muted); font-size: 0.8125rem; border-top: 1px solid var(--
       <div class="card"><b>Тара</b><span>Скляні банки з бугельним замком, вакуумні пакети або банки з закрученою кришкою. Полотняні мішечки підходять лише для сухої кімнати й погано захищають від молі.</span></div>
       <div class="card"><b>Від молі й вологи</b><span>Лавровий лист у банці відлякує харчову міль. Пакетик силікагелю (не з взуття, харчовий) тримає порошки сипкими.</span></div>
       <div class="card"><b>Темрява й прохолода</b><span>Темна шафа або комора. Світло руйнує вітаміни й знебарвлює продукти, тепло прискорює гіркнення жирів.</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="power" aria-labelledby="power-h">
+    <h2 id="power-h">Скільки коштує електрика</h2>
+    <p>Сушарка бере 320–380 Вт, коли гріє. Термостат періодично вимикає нагрівач, тому середня потужність нижча, особливо на низьких температурах. Розрахунок за тарифом 4,32 грн за кВт·год (діє до 31.10.2026). Цифри орієнтовні: точно покаже розетка з лічильником.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Режим</th><th>Середня потужність</th><th>За годину</th><th>Приклад</th></tr></thead>
+        <tbody>
+          <tr><td>Вентиляція</td><td class="num">≈ 20 Вт</td><td class="num">≈ 0,09 грн</td><td>в’ялена риба, 72 год ≈ 6 грн</td></tr>
+          <tr><td>35–45 °C</td><td class="num">≈ 180 Вт</td><td class="num">≈ 0,78 грн</td><td>зелень, 4 год ≈ 3 грн</td></tr>
+          <tr><td>50–60 °C</td><td class="num">≈ 260 Вт</td><td class="num">≈ 1,12 грн</td><td>яблука, 8 год ≈ 9 грн</td></tr>
+          <tr><td>65–75 °C</td><td class="num">≈ 330 Вт</td><td class="num">≈ 1,43 грн</td><td>джерки, 6 год ≈ 9 грн</td></tr>
+          <tr><td>Максимум</td><td class="num">380 Вт</td><td class="num">1,64 грн</td><td>36 год без пауз ≈ 59 грн</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <form class="calc" id="calc" aria-label="Калькулятор витрат">
+      <label for="c-mode">Режим
+        <select id="c-mode">
+          <option value="20">Вентиляція</option>
+          <option value="180">35–45 °C</option>
+          <option value="260" selected>50–60 °C</option>
+          <option value="330">65–75 °C</option>
+        </select>
+      </label>
+      <label for="c-hours">Години<input id="c-hours" type="number" min="0.5" max="200" step="0.5" value="8" inputmode="decimal"></label>
+      <label for="c-tariff">Тариф, грн/кВт·год<input id="c-tariff" type="number" min="0" step="0.01" value="4.32" inputmode="decimal"></label>
+      <output id="c-out" for="c-mode c-hours c-tariff"></output>
+    </form>
+    <div class="cards">
+      <div class="card"><b>Двозонний лічильник</b><span>Уночі (23:00–7:00) електрика вдвічі дешевша. Довгі сушіння вигідно запускати ввечері: таймер до 36 год дозволяє розтягнути їх на кілька ночей.</span></div>
+      <div class="card"><b>Повне завантаження</b><span>П’ять повних лотків коштують майже стільки ж, скільки один. Сушіть великими партіями.</span></div>
+      <div class="card"><b>Від зарядної станції</b><span>При 50–60 °C станції на 1 кВт·год вистачить приблизно на 3–3,5 год з урахуванням втрат інвертора. Для довгих сушінь під час відключень цього замало.</span></div>
     </div>
   </section>
 
@@ -800,6 +841,16 @@ $tog.addEventListener("click", function () {
   for (var i = 0; i < all.length; i++) all[i].open = state.open;
 });
 
+(function () {
+  var f = document.getElementById("calc"); if (!f) return;
+  var m = document.getElementById("c-mode"), h = document.getElementById("c-hours"), t = document.getElementById("c-tariff"), o = document.getElementById("c-out");
+  function fmt(n, d) { return n.toFixed(d).replace(".", ","); }
+  function upd() {
+    var kwh = (parseFloat(m.value) || 0) * (parseFloat(h.value) || 0) / 1000, cost = kwh * (parseFloat(t.value) || 0);
+    o.innerHTML = "≈ <b>" + fmt(kwh, 2) + " кВт·год</b> · <b>" + fmt(cost, 2) + " грн</b>";
+  }
+  f.addEventListener("input", upd); f.addEventListener("submit", function (e) { e.preventDefault(); }); upd();
+})();
 renderChips(); render();
 var h = (location.hash || "").replace("#r-", "");
 if (h && RMAP[h]) openRecipe(h);
