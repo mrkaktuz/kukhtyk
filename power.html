@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Електрика · Режими</title>
+<meta name="description" content="Скільки електрики споживають сушарка й мультипіч і скільки це коштує.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333605a' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 12l4.5-4.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<script src="assets/icons.js"></script>
+<nav class="site-nav" aria-label="Сайт"><a class="brand" href="index.html"><svg class="ico" aria-hidden="true"><use href="#i-logo"/></svg>Режими</a><div class="nav-links"><a href="index.html">Головна</a><a href="dehydrator.html">Сушарка</a><a href="airfryer.html">Мультипіч</a><a href="safety.html">Безпека</a><a href="power.html" aria-current="page">Електрика</a></div></nav>
+<main class="wrap">
+  <header class="hero-text">
+    <span class="eyebrow">Для всіх приладів</span>
+    <h1>Скільки коштує електрика</h1>
+    <p class="lead">Коли прилад прогрівся, термостат періодично вимикає нагрівач, тому середня потужність нижча за паспортну. Розрахунок за тарифом 4,32 грн за кВт·год (діє до 31.10.2026). Цифри орієнтовні: точно покаже розетка з лічильником.</p>
+  </header>
+  <section class="block" aria-label="Таблиці">
+    <div class="tbl-wrap"><h3>Сушарка Gorenje FDK500DE · 320–380 Вт</h3>
+      <table>
+        <thead><tr><th>Режим</th><th>Середня потужність</th><th>За годину</th><th>Приклад</th></tr></thead>
+        <tbody>
+          <tr><td>Вентиляція</td><td class="num">≈ 20 Вт</td><td class="num">≈ 0,09 грн</td><td>в’ялена риба, 72 год ≈ 6 грн</td></tr>
+          <tr><td>35–45 °C</td><td class="num">≈ 180 Вт</td><td class="num">≈ 0,78 грн</td><td>зелень, 4 год ≈ 3 грн</td></tr>
+          <tr><td>50–60 °C</td><td class="num">≈ 260 Вт</td><td class="num">≈ 1,12 грн</td><td>яблука, 8 год ≈ 9 грн</td></tr>
+          <tr><td>65–75 °C</td><td class="num">≈ 330 Вт</td><td class="num">≈ 1,43 грн</td><td>джерки, 6 год ≈ 9 грн</td></tr>
+          <tr><td>Максимум</td><td class="num">380 Вт</td><td class="num">1,64 грн</td><td>36 год без пауз ≈ 59 грн</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-wrap"><h3>Мультипіч Liberton LAF-3207 · 1500 Вт</h3>
+      <table>
+        <thead><tr><th>Страва</th><th>Режим</th><th>Енергія</th><th>Вартість</th></tr></thead>
+        <tbody>
+          <tr><td>Розігрів піци</td><td class="num">160 °C · 4 хв</td><td class="num">≈ 0,07 кВт·год</td><td class="num">≈ 0,30 грн</td></tr>
+          <tr><td>Кекси</td><td class="num">160 °C · 20 хв</td><td class="num">≈ 0,30 кВт·год</td><td class="num">≈ 1,30 грн</td></tr>
+          <tr><td>Картопля фрі</td><td class="num">180–200 °C · 22 хв</td><td class="num">≈ 0,42 кВт·год</td><td class="num">≈ 1,80 грн</td></tr>
+          <tr><td>Курячі крильця</td><td class="num">180–200 °C · 26 хв</td><td class="num">≈ 0,50 кВт·год</td><td class="num">≈ 2,15 грн</td></tr>
+          <tr><td>Те саме в духовці</td><td class="num">200 °C · 15 хв розігріву + 35 хв</td><td class="num">≈ 1,5–2 кВт·год</td><td class="num">≈ 6,50–8,60 грн</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="block" aria-labelledby="calc-h">
+    <h2 id="calc-h">Калькулятор</h2>
+    <form class="calc" id="calc" aria-label="Калькулятор витрат">
+      <label for="c-dev">Прилад<select id="c-dev"><option value="dry">Сушарка</option><option value="air">Мультипіч</option></select></label>
+      <label for="c-mode">Режим<select id="c-mode"></select></label>
+      <label for="c-time">Тривалість<input id="c-time" type="number" min="0.5" step="0.5" value="8" inputmode="decimal"></label>
+      <label for="c-unit">Одиниці<select id="c-unit"><option value="60">години</option><option value="1">хвилини</option></select></label>
+      <label for="c-tariff">Тариф, грн/кВт·год<input id="c-tariff" type="number" min="0" step="0.01" value="4.32" inputmode="decimal"></label>
+      <output id="c-out" for="c-dev c-mode c-time c-unit c-tariff"></output>
+    </form>
+  </section>
+  <section class="block" aria-labelledby="tips-h">
+    <h2 id="tips-h">Як заощадити</h2>
+    <div class="cards">
+      <div class="card"><b>Двозонний лічильник</b><span>Уночі (23:00–7:00) електрика вдвічі дешевша. Довгі сушіння вигідно запускати ввечері: таймер сушарки до 36 год дозволяє розтягнути їх на кілька ночей.</span></div>
+      <div class="card"><b>Повне завантаження</b><span>П’ять повних лотків сушарки коштують майже стільки ж, скільки один. У мультипечі навпаки: перевантажений кошик готується довше й гірше.</span></div>
+      <div class="card"><b>Мультипіч замість духовки</b><span>Для 1–3 порцій мультипіч у 3–4 рази економніша: менший об’єм і майже немає часу на розігрів.</span></div>
+      <div class="card"><b>Від зарядної станції</b><span>Сушарці при 50–60 °C станції на 1 кВт·год вистачить на 3–3,5 год. Мультипечі потрібен інвертор щонайменше на 1500 Вт тривало (краще 1800 Вт), а 1 кВт·год вистачить на 45–50 хв готування.</span></div>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var MODES = { dry: [["Вентиляція", 20], ["35–45 °C", 180], ["50–60 °C", 260], ["65–75 °C", 330]], air: [["80–140 °C", 800], ["150–170 °C", 950], ["180–200 °C", 1150]] };
+    var dev = document.getElementById("c-dev"), mode = document.getElementById("c-mode"), time = document.getElementById("c-time"), unit = document.getElementById("c-unit"), tar = document.getElementById("c-tariff"), out = document.getElementById("c-out");
+    function fill() {
+      mode.innerHTML = MODES[dev.value].map(function (m, i) { return '<option value="' + m[1] + '"' + (i === (dev.value === "dry" ? 2 : 2) ? " selected" : "") + ">" + m[0] + " · ≈ " + m[1] + " Вт</option>"; }).join("");
+      if (dev.value === "dry") { unit.value = "60"; time.value = 8; } else { unit.value = "1"; time.value = 20; }
+    }
+    function fmt(n, d) { return n.toFixed(d).replace(".", ","); }
+    function upd() {
+      var kwh = (parseFloat(mode.value) || 0) * (parseFloat(time.value) || 0) * (parseFloat(unit.value) / 60) / 1000, cost = kwh * (parseFloat(tar.value) || 0);
+      out.innerHTML = "≈ <b>" + fmt(kwh, 2) + " кВт·год</b> · <b>" + fmt(cost, 2) + " грн</b>";
+    }
+    dev.addEventListener("change", function () { fill(); upd(); });
+    document.getElementById("calc").addEventListener("input", upd);
+    document.getElementById("calc").addEventListener("submit", function (e) { e.preventDefault(); });
+    fill(); upd();
+  })();
+  </script>
+  <footer>Час і температура тут орієнтовні: вони залежать від продукту, розміру шматків, завантаження й конкретного приладу. Коли готуєте щось уперше, перевіряйте раніше.</footer>
+</main>
+</body>
+</html>
