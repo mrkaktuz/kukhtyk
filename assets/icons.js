@@ -20,6 +20,7 @@
     egg: '<path d="M12 3c3.6 0 6.5 6.2 6.5 10.5a6.5 6.5 0 0 1-13 0C5.5 9.2 8.4 3 12 3z"/>',
     flame: '<path d="M12 3c1 4 6.5 6 6.5 11.2a6.5 6.5 0 0 1-13 0c0-3 1.8-5 3-6.2 0 2 1 3.2 2.3 3.4C10.5 8.4 10 5.6 12 3z"/>',
     bowl: '<path d="M3.5 11h17a8.5 8.5 0 0 1-17 0z"/><path d="M9 20.5h6"/><path d="M9 8c0-1.2 1-1.6 1-3M13.5 8c0-1.2 1-1.6 1-3"/>',
+    clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
     book: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20"/>'
   };
   var s = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">';

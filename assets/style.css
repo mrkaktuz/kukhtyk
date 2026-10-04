@@ -143,6 +143,10 @@ summary::-webkit-details-marker { display: none; }
 .bar .fill.hot { background: var(--hot); }
 .time { grid-column: 2 / -1; display: flex; justify-content: space-between; gap: 8px; font-size: 0.8125rem; color: var(--muted); }
 .t { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.temp.tt { display: inline-flex; align-items: center; gap: 4px; white-space: normal; text-align: right; max-width: 9.5em; justify-content: flex-end; }
+.temp.tt .ico { width: 15px; height: 15px; color: var(--accent); flex: none; }
+.body dl.times { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.body dl.times dd { font-family: var(--font-mono); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 .src { display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.04em; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 1px; }
 .body { padding: 12px 14px 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
 .body dl { margin: 0; display: grid; gap: 12px; }

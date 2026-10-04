@@ -42,8 +42,9 @@
     return '<details class="item" id="r-' + r.id + '"' + (state.open ? " open" : "") + "><summary>" +
       '<span class="badge-ico">' + icon(r.c) + "</span>" +
       '<span class="name">' + esc(r.n) + (r.src ? '<span class="src">Liberton</span>' : "") + "<small>" + esc(r.m) + "</small></span>" +
-      '<span class="temp">' + r.st.length + " " + plural(r.st.length, "крок", "кроки", "кроків") + "</span>" +
+      '<span class="temp tt" title="Підготовка ' + esc(r.pr) + ' + готування ' + esc(r.ck) + '">' + window.ico("clock") + esc(r.tt) + "</span>" +
       '</summary><div class="body">' +
+      '<dl class="times"><div><dt>Підготовка</dt><dd>' + esc(r.pr) + '</dd></div><div><dt>Готування</dt><dd>' + esc(r.ck) + '</dd></div><div><dt>Разом</dt><dd>' + esc(r.tt) + "</dd></div></dl>" +
       "<div><h4>Інгредієнти</h4><ul class=\"ing\">" + r.ing.map(function (i) { return "<li><span>" + esc(i[0]) + '</span><span class="q">' + esc(i[1]) + "</span></li>"; }).join("") + "</ul></div>" +
       "<div><h4>Приготування</h4><ol class=\"steps\">" + r.st.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol></div>" +
       (r.note ? '<div class="tip">' + esc(r.note) + "</div>" : "") +
