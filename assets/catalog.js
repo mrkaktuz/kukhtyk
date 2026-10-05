@@ -47,6 +47,7 @@
       '<dl class="times"><div><dt>Підготовка</dt><dd>' + esc(r.pr) + '</dd></div><div><dt>Готування</dt><dd>' + esc(r.ck) + '</dd></div><div><dt>Разом</dt><dd>' + esc(r.tt) + "</dd></div></dl>" +
       "<div><h4>Інгредієнти</h4><ul class=\"ing\">" + r.ing.map(function (i) { return "<li><span>" + esc(i[0]) + '</span><span class="q">' + esc(i[1]) + "</span></li>"; }).join("") + "</ul></div>" +
       "<div><h4>Приготування</h4><ol class=\"steps\">" + r.st.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol></div>" +
+      ((r.rd || r.sto) ? "<dl>" + (r.rd ? "<div><dt>Ознаки готовності</dt><dd>" + esc(r.rd) + "</dd></div>" : "") + (r.sto ? "<div><dt>Зберігання</dt><dd>" + esc(r.sto) + "</dd></div>" : "") + "</dl>" : "") +
       (r.note ? '<div class="tip">' + esc(r.note) + "</div>" : "") +
       (r.book ? '<div class="tip book"><b>У книзі Liberton:</b> ' + esc(r.book) + "</div>" : "") +
       (r.src ? '<div class="tip book">Рецепт із фірмової книги рецептів Liberton, адаптований і доповнений.</div>' : "") +
